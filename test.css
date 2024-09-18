@@ -13,60 +13,87 @@
 }
 
 :root {
-    --kui-blue: #2e4dff;
-    --kui-blue-dark: #2849dd;
-    --kui-blue-hover: #2347be;
-    --kui-red: #EE4354;
-    --kui-red-dark: #cf3746;
-    --kui-red-hover: #b92938;
-    --kui-yellow: #E1BC29;
-    --kui-yellow-dark: #ceac24;
-    --kui-yellow-hover: #c79426;
-    --kui-green: #47E469;
-    --kui-green-dark: #36b952;
-    --kui-green-hover: #1ebb40;
-    --kui-purple: #6544DC;
-    --kui-purple-dark: #5037ac;
-    --kui-indigo: #6610f2;
-    --kui-pink: #d63384;
-    --kui-orange: #fd7e14;
-    --kui-teal: #20c997;
-    --kui-cyan: #00aeff;
-    --kui-cyan-hover: #0086f3;
-    --kui-white: #fff;
-    --kui-white-hover: #f2f4fa;
-    --kui-gray: #e8edff;
-    --kui-gray-hover: #c5cef3;
-    --kui-gray-dark: #343a40;
-    --kui-gray-100: #f1f2f7;
-    --kui-gray-200: #e9ecef;
-    --kui-gray-300: #dee2e6;
-    --kui-gray-400: #ced4da;
-    --kui-gray-500: #adb5bd;
-    --kui-gray-600: #808186;
-    --kui-gray-700: #495057;
-    --kui-gray-800: #343a40;
-    --kui-gray-900: #232327;
-    --kui-black: #0a090a;
-    --kui-black-hover: #312e35;
+    --ui-pr: #2e4dff;
+    --ui-pr-dark: #2849dd;
+    --ui-pr-hover: #2347be;
+    --ui-dan: #EE4354;
+    --ui-dan-dark: #cf3746;
+    --ui-dan-hover: #b92938;
+    --ui-war: #E1BC29;
+    --ui-war-dark: #ceac24;
+    --ui-war-hover: #c79426;
+    --ui-suc: #47E469;
+    --ui-suc-dark: #36b952;
+    --ui-suc-hover: #1ebb40;
+    --ui-inf: #6544DC;
+    --ui-inf-dark: #5037ac;
+    --ui-inf-hover: #5312bb;
+    --ui-pink: #d63384;
+    --ui-orange: #fd7e14;
+    --ui-teal: #20c997;
+    --ui-cyan: #00aeff;
+    --ui-cyan-hover: #0086f3;
+    --ui-white: #fff;
+    --ui-white-hover: #f2f4fa;
+    --ui-gray: #e8edff;
+    --ui-gray-hover: #c5cef3;
+    --ui-gray-dark: #343a40;
+    --ui-gray-100: #f1f2f7;
+    --ui-gray-200: #e9ecef;
+    --ui-gray-300: #dee2e6;
+    --ui-gray-400: #ced4da;
+    --ui-gray-500: #adb5bd;
+    --ui-gray-600: #808186;
+    --ui-gray-700: #495057;
+    --ui-gray-800: #343a40;
+    --ui-gray-900: #232327;
+    --ui-black: #0a090a;
+    --ui-black-hover: #312e35;
 
     /* Utilities */
     --border-r1: 4px;
-    --border-r2: 8px;
+    --border-r2: 9px;
     --border-r3: 10px;
     --border-r4: 15px;
 
     /* Default font-family */
-    --kui-f-fam: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --ui-f-fam: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     /* Transition */
-    --kui-transition: 0.1s cubic-bezier(0.4, 0, 1, 1);
+    --ui-transition: 0.09s cubic-bezier(0.63, 0.07, 0.4, 0.97);
 }
 
 .card {
-    background-color: var(--kui-black);
-    border: 1px solid var(--kui-gray-800);
+    background-color: var(--ui-black);
+    border: 1px solid var(--ui-gray-800);
     border-radius: var(--border-r4);
     padding: 1.25rem;
     width: 100%;
+}
+
+.btn {
+    font: 500 1rem/1.5 var(--ui-f-fam);
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--border-r2);
+    color: var(--ui-white);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--ui-transition), border-color var(--ui-transition), color var(--ui-transition), transform var(--ui-transition);
+
+    &.btn-pr {
+        background-color: var(--ui-pr);
+        border-color: var(--ui-pr);
+
+        &:hover {
+            background-color: var(--ui-pr-hover);
+        }
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
 }
