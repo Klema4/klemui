@@ -1,0 +1,83 @@
+@use 'colors' as g
+@use 'sass:color'
+
+$states: ( 'default': g.$gray, 'success': g.$success, 'danger': g.$danger, 'warning': g.$warning, 'info': g.$info )
+
+.form
+    background-color: g.$component
+    border: 1px solid g.$gray
+    padding: 0.7rem 1rem
+    font: 1rem/1.5 g.$font-family
+    letter-spacing: -0.01vw
+    border-radius: g.$rounded * 3
+    transition: border-color g.$transition, outline g.$transition, background-color g.$transition, background-size g.$transition
+
+    &:placeholder
+        color: g.$gray-dark
+
+    &:focus
+        border-color: g.$primary
+        outline: none
+
+    &[type='checkbox']
+        appearance: none
+        display: inline-block
+        width: 0.8rem !important
+        height: 0.8rem !important
+        border: 1px solid g.$gray
+        padding: 0.6rem
+        background-image: url('data:image/svg+xml;utf8,<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.8188 5.33361L9.78134 17.3711C9.50006 17.6522 9.11868 17.8101 8.72102 17.8101C8.32337 17.8101 7.94199 17.6522 7.66071 17.3711L0.946337 10.6211C0.665531 10.3399 0.507813 9.95869 0.507812 9.56126C0.507812 9.16384 0.665531 8.78266 0.946337 8.50142L2.82134 6.62642C3.10246 6.34647 3.48304 6.1893 3.87977 6.1893C4.27651 6.1893 4.65709 6.34647 4.93821 6.62642L8.75852 10.3314L17.8298 1.37173C18.1109 1.0915 18.4917 0.934143 18.8887 0.934143C19.2856 0.934143 19.6664 1.0915 19.9476 1.37173L21.8179 3.20361C21.9586 3.34299 22.0702 3.50884 22.1465 3.6916C22.2227 3.87435 22.262 4.07039 22.2621 4.26841C22.2622 4.46643 22.223 4.6625 22.147 4.84533C22.0709 5.02815 21.9594 5.1941 21.8188 5.33361Z" fill="white"/></svg>')
+        background-size: 0rem
+        background-repeat: no-repeat
+        background-position: center
+        border-radius: g.$rounded * 3
+
+        &:checked
+            background-color: g.$primary
+            border-color: g.$primary
+            background-size: 0.75rem
+        
+        &:hover
+            border-color: g.$primary
+
+    &[type='radio']
+        appearance: none
+        display: inline-block
+        width: 1.2rem !important
+        height: 1.2rem !important
+        border: 1px solid g.$gray
+        padding: 0
+        border-radius: 50%
+        position: relative
+        background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="9" height="9" rx="4.5" fill="white"/></svg>')
+        background-size: 0rem
+        background-repeat: no-repeat
+        background-position: center
+        margin: 0 0.5rem 0 0
+        box-sizing: border-box
+
+        &:checked
+            background-color: g.$primary
+            border-color: g.$primary
+            background-size: 0.75rem
+            background-position: center
+
+    &.disabled
+        background-color: g.$gray
+        border-color: g.$gray
+        color: color.mix(g.$white, g.$gray-dark, 50%)
+
+
+    @each $state, $color in $states
+        &.#{$state}
+            border-color: $color
+
+.form-label
+    color: g.$gray-dark
+    font-weight: 500
+    margin: 0 0 0.35rem
+    letter-spacing: -0.01vw
+
+.form-group
+    display: flex
+    flex-direction: column
