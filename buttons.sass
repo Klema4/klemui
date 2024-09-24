@@ -1,0 +1,56 @@
+@use "sass:meta"
+@use "sass:string"
+@use 'sass:color'
+@use 'colors' as g
+
+$primary: g.$primary
+$danger: g.$danger
+$warning: g.$warning
+$success: g.$success
+$info: g.$info
+$pink: g.$pink
+$orange: g.$orange
+$teal: g.$teal
+$cyan: g.$cyan
+$white: g.$white
+$gray: g.$gray
+$gray-dark: g.$gray-dark
+$black: g.$black
+$rounded: g.$rounded
+$font-family: g.$font-family
+$transition: g.$transition
+
+@mixin apply-to-all($mixin, $list)
+    @each $element in $list
+        @include meta.apply($mixin, $element)
+
+@mixin btn-color($color, $hex)
+    .btn-#{$color}
+        @extend %btn
+        background-color: $hex
+        color: if($hex == $gray or $hex == $white, $black, $white)
+        border-color: $hex
+
+        &:hover
+            background-color: darken($hex, 5%)
+            border-color: darken($hex, 5%)
+            text-decoration: none
+
+$colors: ( primary: $primary, secondary: $gray, danger: $danger, warning: $warning, success: $success, info: $info, dark: $black, light: $white, "pink": $pink, "orange": $orange, "teal": $teal, "cyan": $cyan )
+
+@each $color, $hex in $colors
+    @include btn-color($color, $hex)
+
+%btn
+    font: 500 0.9rem/1.5 $font-family
+    border-radius: calc($rounded * 3.5)
+    border: 1px solid transparent
+    cursor: pointer
+    display: inline-block
+    padding: 0.5rem 0.8rem
+    text-align: center
+    text-decoration: none
+    transition: background-color $transition, border-color $transition, color $transition, transform $transition
+
+    &:active
+        transform: scale(0.97)
